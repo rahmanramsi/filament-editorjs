@@ -7,6 +7,7 @@
     "@editorjs/raw": "^2.3.1",
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.7",
+    "editorjs-drag-drop": "^1.1.2",
     "editorjs-style": "^3.0.3",
     "editorjs-undo": "^1.0.1",
     "laravel-mix": "^6.0.49",
