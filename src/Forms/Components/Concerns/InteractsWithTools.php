@@ -1,6 +1,6 @@
 <?php
 
-namespace Rahmanramsi\FilamentEditorJs\Forms\Components\Concerns;
+namespace FilamentEditorJs\Forms\Components\Concerns;
 
 use Closure;
 

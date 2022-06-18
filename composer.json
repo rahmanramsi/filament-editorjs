@@ -31,13 +31,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Rahmanramsi\\FilamentEditorJs\\": "src",
-            "Rahmanramsi\\FilamentEditorJs\\Database\\Factories\\": "database/factories"
+            "FilamentEditorJs\\": "src",
+            "FilamentEditorJs\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rahmanramsi\\FilamentEditorJs\\Tests\\": "tests"
+            "FilamentEditorJs\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -52,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Rahmanramsi\\FilamentEditorJs\\FilamentEditorJsServiceProvider"
+                "FilamentEditorJs\\FilamentEditorJsServiceProvider"
             ]
         }
     },
