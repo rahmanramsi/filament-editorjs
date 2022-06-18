@@ -1,0 +1,61 @@
+{
+    "name": "rahmanramsi/filament-editorjs",
+    "description": "Next generation block styled editor.",
+    "keywords": [
+        "rahmanramsi",
+        "laravel",
+        "filament-editorjs"
+    ],
+    "homepage": "https://github.com/rahmanramsi/filament-editorjs",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rahman Ramsi",
+            "email": "rahmanramsi19@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "spatie/laravel-package-tools": "^1.9.2",
+        "illuminate/contracts": "^8.0|^9.0",
+        "filament/forms": "^2.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "nunomaduro/collision": "^6.0",
+        "orchestra/testbench": "^7.0",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rahmanramsi\\FilamentEditorJs\\": "src",
+            "Rahmanramsi\\FilamentEditorJs\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rahmanramsi\\FilamentEditorJs\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rahmanramsi\\FilamentEditorJs\\FilamentEditorJsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

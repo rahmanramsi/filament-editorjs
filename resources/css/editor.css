@@ -1,0 +1,38 @@
+/* @tailwind base; */
+@tailwind components;
+/* @tailwind utilities; */
+
+.editorjs-wrapper {
+    @apply border rounded-lg relative bg-white shadow-sm prose prose-sm dark:prose-invert border-gray-300 mx-auto dark:bg-gray-700 dark:border-gray-600;
+    max-width: unset;
+}
+
+.codex-editor__redactor {
+    @apply px-3 py-2;
+}
+
+.ce-block__content,
+.ce-toolbar__content {
+    max-width: unset; /* example value, adjust for your own use case */
+}
+
+.ce-toolbar__plus,
+.ce-toolbar__settings-btn {
+    @apply dark:text-gray-300 dark:hover:bg-gray-700;
+}
+
+.ce-popover {
+    @apply dark:bg-gray-800 dark:border-gray-600;
+}
+
+.ce-popover__item-icon {
+    @apply dark:bg-gray-600;
+}
+
+.ce-popover__item {
+    @apply dark:hover:bg-gray-500;
+}
+
+.ce-code__textarea {
+    @apply dark:bg-gray-500 dark:text-white;
+}
