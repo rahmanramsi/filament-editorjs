@@ -23,6 +23,40 @@ EditorJs::make('content')
 
 ```
 
+## Customization
+
+### Tools
+
+By default all tools are enabled. This is a list of available tools:
+
+```php
+[
+    'header',
+    'image',
+    'delimiter',
+    'list',
+    'underline',
+    'quote',
+    'table',
+    'raw',
+    'code',
+    'inline-code',
+    'style',
+]
+```
+
+You can disable any of them using by passing an array of tool names:
+
+```php
+EditorJs::make('content')->disableTools(['image', 'raw']);
+```
+
+Also you can enable only certain tools:
+
+```php
+EditorJs::make('content')->tools(['image', 'raw']);
+```
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
@@ -37,7 +71,6 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Rahman Ramsi](https://github.com/rahmanramsi)
 - [All Contributors](../../contributors)
 
 ## License
