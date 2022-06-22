@@ -15,7 +15,7 @@ import DragDrop from "editorjs-drag-drop";
 document.addEventListener("alpine:init", () => {
   Alpine.data(
     "editorjs",
-    ({ state, statePath, placeholder, readOnly, tools }) => ({
+    ({ state, statePath, placeholder, readOnly, tools, minHeight }) => ({
       instance: null,
       state: state,
       tools: tools,
@@ -82,7 +82,7 @@ document.addEventListener("alpine:init", () => {
         if (this.tools.includes("style")) enabledTools.style = StyleInlineTool;
         this.instance = new EditorJS({
           holder: this.$el,
-          minHeight: 30,
+          minHeight: minHeight,
           data: this.state,
           placeholder: placeholder,
           readOnly: readOnly,

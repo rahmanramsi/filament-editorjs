@@ -28,4 +28,18 @@ class EditorJs extends Field implements HasFileAttachmentsContract
     'inline-code',
     'style',
   ];
+
+  protected int | Closure | null $minHeight = 30;
+
+  public function minHeight(int | Closure | null $minHeight): static
+  {
+      $this->minHeight = $minHeight;
+
+      return $this;
+  }
+
+  public function getMinHeight(): ?int
+  {
+      return $this->evaluate($this->minHeight);
+  }
 }
