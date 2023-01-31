@@ -22,7 +22,12 @@ document.addEventListener("alpine:init", () => {
       init() {
         let enabledTools = {};
 
-        if (this.tools.includes("header")) enabledTools.header = Header;
+        if (this.tools.includes("header")) {
+          enabledTools.header = {
+            class: Header,
+            inlineToolbar: true,
+          };
+        }
         if (this.tools.includes("image")) {
           enabledTools.image = {
             class: ImageTool,
@@ -70,11 +75,26 @@ document.addEventListener("alpine:init", () => {
         }
         if (this.tools.includes("delimiter"))
           enabledTools.delimiter = Delimiter;
-        if (this.tools.includes("list")) enabledTools.list = List;
+        if (this.tools.includes("list")) {
+          enabledTools.list = {
+            class: List,
+            inlineToolbar: true,
+          };
+        }
         if (this.tools.includes("underline"))
           enabledTools.underline = Underline;
-        if (this.tools.includes("quote")) enabledTools.quote = Quote;
-        if (this.tools.includes("table")) enabledTools.table = Table;
+        if (this.tools.includes("quote")) {
+          enabledTools.quote = {
+            class: Quote,
+            inlineToolbar: true,
+          };
+        }
+        if (this.tools.includes("table")) {
+          enabledTools.table = {
+            class: Table,
+            inlineToolbar: true,
+          };
+        }
         if (this.tools.includes("raw")) enabledTools.raw = RawTool;
         if (this.tools.includes("code")) enabledTools.code = Code;
         if (this.tools.includes("inline-code"))
