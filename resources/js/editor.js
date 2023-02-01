@@ -19,6 +19,31 @@ document.addEventListener("alpine:init", () => {
       instance: null,
       state: state,
       tools: tools,
+      uploadImage: function (blob) {
+        return new Promise((resolve) => {
+          this.$wire.upload(
+            `componentFileAttachments.${statePath}`,
+            blob,
+            (uploadedFilename) => {
+              this.$wire
+                .getComponentFileAttachmentUrl(statePath)
+                .then((url) => {
+                  if (!url) {
+                    return resolve({
+                      success: 0,
+                    });
+                  }
+                  return resolve({
+                    success: 1,
+                    file: {
+                      url: url,
+                    },
+                  });
+                });
+            }
+          );
+        });
+      },
       init() {
         let enabledTools = {};
 
@@ -33,40 +58,12 @@ document.addEventListener("alpine:init", () => {
             class: ImageTool,
             config: {
               uploader: {
-                uploadByFile: (file) => {
-                  return new Promise((resolve) => {
-                    this.$wire.upload(
-                      `componentFileAttachments.${statePath}`,
-                      file,
-                      (uploadedFilename) => {
-                        this.$wire
-                          .getComponentFileAttachmentUrl(statePath)
-                          .then((url) => {
-                            if (!url) {
-                              return resolve({
-                                success: 0,
-                              });
-                            }
-                            return resolve({
-                              success: 1,
-                              file: {
-                                url: url,
-                              },
-                            });
-                          });
-                      }
-                    );
-                  });
-                },
-
+                uploadByFile: (file) => this.uploadImage(file),
                 uploadByUrl: (url) => {
-                  return this.$wire.loadImageFromUrl(url).then((result) => {
-                    return {
-                      success: 1,
-                      file: {
-                        url: result,
-                      },
-                    };
+                  return new Promise(async (resolve) => {
+                    return fetch(url)
+                      .then((res) => res.blob())
+                      .then((blob) => resolve(this.uploadImage(blob)));
                   });
                 },
               },
