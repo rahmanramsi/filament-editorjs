@@ -12,7 +12,13 @@
     <div class="filament-editorjs">
       <div 
           wire:ignore
-          class="editorjs-wrapper"
+          {{
+            $attributes
+              ->merge($getExtraAttributes())
+              ->class([
+                  'editorjs-wrapper'
+              ])
+          }}
           x-data="editorjs({ 
                 state: $wire.entangle('{{ $getStatePath() }}').defer,
                 statePath: '{{ $getStatePath() }}',
