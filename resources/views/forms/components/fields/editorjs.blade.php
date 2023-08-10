@@ -1,12 +1,6 @@
-<x-forms::field-wrapper
-    :id="$getId()"
-    :label="$getLabel()"
-    :label-sr-only="$isLabelHidden()"
-    :helper-text="$getHelperText()"
-    :hint="$getHint()"
-    :hint-icon="$getHintIcon()"
-    :required="$isRequired()"
-    :state-path="$getStatePath()"
+<x-dynamic-component
+    :component="$getFieldWrapperView()"
+    :field="$field"
 >
 
     <div class="filament-editorjs">
@@ -20,8 +14,7 @@
               ])
           }}
           x-data="editorjs({ 
-                state: $wire.entangle('{{ $getStatePath() }}').defer,
-                statePath: '{{ $getStatePath() }}',
+                state: $wire.entangle('{{ $getStatePath() }}'),
                 placeholder: '{{ $getPlaceholder() }}',
                 readOnly: {{ $isDisabled() ? 'true' : 'false' }},
                 tools: @js($getTools()),
@@ -31,4 +24,4 @@
       </div>
     </div>
 
-</x-forms::field-wrapper>
+</x-dynamic-component>

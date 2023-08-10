@@ -1,0 +1,16 @@
+* text=auto
+
+*.blade.php diff=html
+*.css diff=css
+*.html diff=html
+*.md diff=markdown
+*.php diff=php
+
+/art export-ignore
+.gitignore export-ignore
+composer.lock export-ignore
+mix-manifest.json export-ignore
+package-lock.json export-ignore
+package.json export-ignore
+tailwind.config.js export-ignore
+webpack.mix.js export-ignore
