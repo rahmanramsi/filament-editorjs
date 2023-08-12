@@ -3,12 +3,15 @@
 /* @tailwind utilities; */
 
 .editorjs-wrapper {
-  @apply border rounded-lg relative bg-white shadow-sm prose prose-sm dark:prose-invert border-gray-300 mx-auto dark:bg-gray-700 dark:border-gray-600;
+  @apply border rounded-lg relative bg-white shadow-sm prose prose-sm dark:prose-invert border-gray-300 mx-auto dark:bg-white/5 dark:border-gray-600;
   max-width: unset;
 }
 
 .codex-editor__redactor {
   @apply px-3 py-2;
+}
+.cdx-search-field {
+  @apply bg-transparent;
 }
 
 .ce-block__content,
@@ -25,12 +28,12 @@
   @apply dark:bg-gray-800 dark:border-gray-600;
 }
 
-.ce-popover__item-icon {
-  @apply dark:bg-gray-800;
+.ce-popover-item__icon {
+  @apply dark:bg-transparent;
 }
 
-.ce-popover__item {
-  @apply dark:hover:bg-gray-500;
+.ce-popover-item {
+  @apply dark:hover:bg-gray-700 dark:text-white;
 }
 
 .ce-code__textarea {

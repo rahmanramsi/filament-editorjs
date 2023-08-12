@@ -2,41 +2,36 @@
 
 namespace FilamentEditorJs;
 
-use Filament\Facades\Filament;
+use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Js;
+use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class FilamentEditorJsServiceProvider extends PackageServiceProvider
 {
+
+    public static string $name = "filament-editorjs";
+
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('filament-editorjs')
+            ->name(static::$name)
             ->hasViews()
             ->hasAssets();
     }
 
     public function packageBooted()
     {
-        if (class_exists(\Filament\FilamentServiceProvider::class)) {
-            Filament::serving(function () {
-                Filament::registerScripts($this->getScripts(), true);
-                Filament::registerStyles($this->getStyles());
-            });
+        if (! class_exists(FilamentAsset::class)) {
+            return;
         }
-    }
 
-    public function getScripts(): array
-    {
-        return [
-            'filament-editorjs' => __DIR__ . '/../resources/dist/js/editor.js',
-        ];
-    }
+        FilamentAsset::register([
 
-    public function getStyles(): array
-    {
-        return [
-            'filament-editorjs' => __DIR__ . '/../resources/dist/css/editor.css',
-        ];
+            Css::make(static::$name, __DIR__ . '/../resources/dist/css/editor.css'),
+            Js::make(static::$name, __DIR__ . '/../resources/dist/js/editor.js'),
+
+        ], static::$name);
     }
 }
